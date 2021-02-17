@@ -1,6 +1,3 @@
-# require_relative 'app.rb'
-
-
 feature 'Testing infrastructure' do
   scenario 'Can run app and check page contents' do
     visit('/')
