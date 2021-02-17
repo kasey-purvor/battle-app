@@ -1,4 +1,4 @@
-# require_relative 'app.rb'
+# require_relative '././spec_helper'
 
 
 feature 'Testing infrastructure' do
