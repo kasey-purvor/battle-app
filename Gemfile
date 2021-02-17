@@ -5,5 +5,6 @@ group :test do
   gem 'rubocop', '0.79.0'
   gem 'sinatra'
   gem 'capybara'
+  gem 'puma'
 
 end
