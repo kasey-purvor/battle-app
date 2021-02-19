@@ -1,29 +1,17 @@
 require 'sinatra/base'
-require 'player'
-
-
+require './lib/player'
+require './lib/game'
 class Battle < Sinatra::Base
   enable :sessions
-  # get '/' do
-    # "Testing infrastructure working!"
-  # end
 
   get '/' do
     p params
     erb :index
   end
 
-  get '/attack' do
-    @player_1_name = $player_1.name
-    @player_2_name = $player_2.name
-    $player_2.hit
-    erb :attack
-  end
-
   post '/names' do
     p params
-    $player_1 = Player.new(params[:player_1_name])
-    $player_2 = Player.new(params[:player_2_name])
+    $game = Game.new(params[:player_1_name], params[:player_2_name])
     redirect '/play'
   end
 
@@ -34,6 +22,15 @@ class Battle < Sinatra::Base
     p @player_2_name
     erb :play
   end
+
+  get '/attack' do
+    @player_1_name = $player_1.name
+    @player_2_name = $player_2.name
+    $game.attack($player_2)
+    erb :attack
+  end
+
+
 
   run! if app_file == $0
 end

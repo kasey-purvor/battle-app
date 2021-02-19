@@ -6,8 +6,7 @@ class Player
     @hp = 100
   end
 
-  def hit
-    @hp -= 10
+  def damage
+    @hp -=10
   end
-
 end
